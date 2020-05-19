@@ -1,0 +1,7 @@
+{
+  "name": "pokemonWiki",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
