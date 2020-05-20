@@ -1,20 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pokemon</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+    <ion-item>
+      <ion-label position="stacked">¿Cual es el nombre del pokemon?</ion-label>
+      <ion-input [(ngModel)]="poke.nombre" placeholder="Nombre pokemon"></ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-label position="stacked">¿Cual el primer tipo del pokemon?</ion-label>
+      <ion-input [(ngModel)]="poke.tipo1" placeholder="Tipo 1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">¿Cual el segundo tipo del pokemon?</ion-label>
+      <ion-input [(ngModel)]="poke.tipo2" placeholder="Tipo 2"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">¿Cual es su porcentaje? (escribe solo el numero)</ion-label>
+      <ion-input [(ngModel)]="poke.porcentaje" placeholder="Porcentaje"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">La URL de la imagen</ion-label>
+      <ion-input [(ngModel)]="poke.img" placeholder="https://..."></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="addPoke()">Añade el nuevo pokemon</ion-button>
+
+    <ion-list>
+    <ion-list-header>
+      <ion-label>Mis pokes</ion-label>
+    </ion-list-header>
+        <ion-item-sliding *ngFor="let poke of pokes">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="poke.img">
+            </ion-avatar>
+    
+            <ion-label>
+              <h2>Nombre del pokemon: {{ poke.nombre }}</h2>
+              <p>Tipo 1: {{ poke.tipo1 }}</p>
+              <p>Tipo 2: {{ poke.tipo2 }}</p>
+              <p>Porcentaje de uso en el competitivo: {{ poke.porcentaje }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item-options slite="end">
+            <ion-item-option color="danger" (click)="deletePoke(poke)">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>

@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/cordova-sqlite-storage/-/cordova-sqlite-storage-5.0.0.tgz",
   "_shasum": "19323c5e810ed596e802e72392c17d341badd2b4",
   "_spec": "cordova-sqlite-storage",
-  "_where": "/mnt/d/Github/ionic/pokemonWiki",
+  "_where": "/mnt/d/Github/ionic/pokeWiki",
   "author": {
     "name": "various"
   },
