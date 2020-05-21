@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Poke,StorageService } from '../services/storage.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
-import { SortPipe } from '@angular/core'
 
 
 @Component({
@@ -9,8 +8,6 @@ import { SortPipe } from '@angular/core'
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
-
 
 export class HomePage {
 

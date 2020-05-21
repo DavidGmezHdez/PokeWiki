@@ -1,11 +1,35 @@
+
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Pokemon</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Página Principal</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-item>
+<ion-content>
+
+  <ion-card color="dark">
+
+    <img src="../../assets/img/logo.jpg">
+
+    <ion-card-title>Nuestra aplicación</ion-card-title>
+
+    <ion-card-content>
+      <p>·En esta app puede ver los Pokemon más utilizados en competitivo juntos con sus estadisticas.</p>
+      <p>·Si pulsas cualquier Pokemon de la lista obtendras toda su información (nombre, tipos, estadisticas y porcentaje de uso).</p>
+      <p>·Podras añadir nuevos Pokemon si tienes la información descrita anteriormente.</p>
+      <p>·Puedes añadir el pokemon que quieras a tu equipo.</p>
+      <p>·En la pagina About puedes obtener información de los creadores de la app, tambien puedes contactarnos</p>
+    </ion-card-content>
+
+    
+  </ion-card>
+    
+ 
+<!--
+  <ion-item>
       <ion-label position="stacked">¿Cual es el nombre del pokemon?</ion-label>
       <ion-input [(ngModel)]="poke.nombre" placeholder="Nombre pokemon"></ion-input>
     </ion-item>
@@ -31,8 +55,9 @@
     </ion-item>
 
     <ion-button expand="full" (click)="addPoke()">Añade el nuevo pokemon</ion-button>
-
-    <ion-list>
+-->
+<!--
+  <ion-list>
     <ion-list-header>
       <ion-label>Mis pokes</ion-label>
     </ion-list-header>
@@ -43,10 +68,10 @@
             </ion-avatar>
     
             <ion-label>
-              <h2>Nombre del pokemon: {{ poke.nombre }}</h2>
-              <p>Tipo 1: {{ poke.tipo1 }}</p>
-              <p>Tipo 2: {{ poke.tipo2 }}</p>
-              <p>Porcentaje de uso en el competitivo: {{ poke.porcentaje }}</p>
+              <h1>{{ poke.nombre }}</h1>
+              <h3>Tipo 1: {{ poke.tipo1 }}</h3>
+              <h3>Tipo 2: {{ poke.tipo2 }}</h3>
+              <h3>Porcentaje de uso en el competitivo: {{ poke.porcentaje }}%</h3>
             </ion-label>
           </ion-item>
 
@@ -55,4 +80,5 @@
           </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-</ion-content>
+-->      
+</ion-content> 

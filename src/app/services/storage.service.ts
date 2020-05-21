@@ -16,6 +16,7 @@ const POKE_KEYS='my-pokes';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StorageService {
 
   constructor(private storage: Storage) { }
