@@ -5,13 +5,6 @@ import { Platform, ToastController, IonList } from '@ionic/angular';
 import { PreloadAllModules, RouterModule, Routes, Router } from '@angular/router';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
-const routes: Routes = [
-  {
-    path: 'home',
-    canActivate:[AuthGuardService],
-    loadChildren: () => import('../../miembros/home/home.module').then( m => m.HomePageModule)
-  }
-];
 
 @Component({
   selector: 'app-login',
@@ -50,7 +43,6 @@ export class LoginPage implements OnInit {
     for(let i of this.usus){
       if(i.email === this.usu.email){
         if(i.pass === this.usu.pass){
-          console.log("Inicio sesion correcto");
           this.storage.setUsuarioActivo(this.usu);
           this.showToast("Logueado con exito")
           this.storage.setEstado(true);
@@ -58,8 +50,7 @@ export class LoginPage implements OnInit {
         }
       }
     }
-    console.log("Inicio incorrecto");
-    this.showToast("Logueado mal")
+    this.showToast("Datos no correctos, inténtelo de nuevo")
     return false;
   }
 

@@ -89,7 +89,7 @@ export class AuthenticationService {
 
 */
   logout(){
-    this.usuarioActivo = null;
+    this.usuarioActivo = undefined;
     this.authenticationState.next(false);
   }
 

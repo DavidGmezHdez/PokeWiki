@@ -28,8 +28,6 @@ export class AppComponent {
   }
 
   logOut(){
-    console.log(this.storage.getUsuarioActivo());
     this.storage.logout();
-    
   }
 }
