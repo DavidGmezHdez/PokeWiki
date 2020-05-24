@@ -29,9 +29,12 @@ export class StorageService {
 
   addPokemon(poke: Poke): Promise<any> {
     return this.storage.get(POKE_KEYS).then((pokes: Poke[])=>{
+      console.log(pokes);
       if(pokes){
         pokes.push(poke);
+        console.log(pokes);
         return this.storage.set(POKE_KEYS,pokes);
+        
       }else{
         return this.storage.set(POKE_KEYS,[poke]);
       }

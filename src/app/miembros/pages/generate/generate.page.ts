@@ -26,8 +26,8 @@ export class GeneratePage implements OnInit {
 
   loadPokes(){
     this.storageService.getPokes().then(pokes => {
+      console.log(pokes);
       this.pokes = pokes.sort((a,b)=>b.porcentaje - a.porcentaje);
-
     });
   }
 
@@ -38,6 +38,7 @@ export class GeneratePage implements OnInit {
       console.log(poke);
       this.poke = <Poke>{};
       this.showToast('Poke añadido');
+      console.log(poke);
       this.loadPokes();
     });
   }
