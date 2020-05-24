@@ -8,20 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="stacked">¿Cual es el nombre del pokemon?</ion-label>
-    <ion-input [(ngModel)]="poke.nombre" placeholder="Nombre pokemon"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">¿Cual es su porcentaje? (escribe solo el numero)</ion-label>
-    <ion-input [(ngModel)]="poke.porcentaje" placeholder="Porcentaje"></ion-input>
-  </ion-item>
+  <div class="introduccion">
 
-  <ion-item>
-    <ion-label position="stacked">La URL de la imagen</ion-label>
-    <ion-input [(ngModel)]="poke.img" placeholder="https://..."></ion-input>
-  </ion-item>
-
-  <ion-button expand="full" (click)="addPoke()">Añade el nuevo pokemon</ion-button>
+    <ion-item class="introducir">
+      <ion-label position="floating">¿Cual es el nombre del pokemon?</ion-label>
+      <ion-input [(ngModel)]="poke.nombre" placeholder="Nombre pokemon"></ion-input>
+    </ion-item>
+  
+    <ion-item class="introducir">
+      <ion-label position="floating">¿Cual es su porcentaje? (escribe solo el numero)</ion-label>
+      <ion-input [(ngModel)]="poke.porcentaje" placeholder="Porcentaje"></ion-input>
+    </ion-item>
+  
+    <ion-item class="introducir">
+      <ion-label position="floating">La URL de la imagen</ion-label>
+      <ion-input [(ngModel)]="poke.img" placeholder="https://..."></ion-input>
+    </ion-item>
+  
+    <ion-button color="warning" shape="round" size="small" expand="block" class="boton" (click)="addPoke()">Añade el nuevo pokemon</ion-button>
+  
+  </div>
+  
 </ion-content>

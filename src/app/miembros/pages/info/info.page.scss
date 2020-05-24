@@ -1,40 +1,84 @@
-.imagenytipos{
-    flex: 1;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+*{
+    font-size: 3vh;;
+}
+#nombrePoke{
+    text-align: center;
+    font-size: 5vh;
+}
+
+.formaTipos{
     text-align: center;
 }
-
-.imagenytipos img{
-    margin: auto;
-    min-height: 20vw;
-    min-width: 20vw;
-    max-height: 25vw;
-    max-width: 25vw;
-    padding-bottom: 10px;
-    filter: drop-shadow(0px 5px 5px black);
-    animation: desplazamientoIzq 1.5s ease;
+.tipos{
+    width: 40%;
+    margin: auto; 
 }
 
-.imagenytipos .tipos{
-    display: flex;
-    justify-content: center;
-    cursor: default;
-    animation: desplazamientoIzq 1.5s ease;
-}
-
-.imagenytipos .tipos #tipo1 {
-    color:blue;
+.tipo{  
+    margin-right: 10px;
+    border-radius: 20px;
     background: black;
-    margin-right: 10px;
-    border-radius: 10px;
+    color: white;
     padding: 5px 35px;
 }
 
-.imagenytipos .tipos #tipo2 {
-    color:yellow;
-    margin-right: 10px;
-    border-radius: 10px;
-    padding: 5px 35px;
+.sprites{
+    text-align: center;
+    width:70%;
+    margin: auto;
+    border-radius: 20%;
+    background: rgb(135, 135, 135); 
+    color:white; 
+    padding-top: 2vh; 
+    padding-bottom: 2vh; 
+    margin-bottom: 2vh;   
 }
+
+.sprites img{
+    height: 20vw;
+    filter: drop-shadow(0px 3px 3px black);
+}
+
+.stats{
+    text-align: center;
+    width: 50%;
+    float: left;
+    background: rgb(135, 135, 135); 
+    border-top-left-radius: 20%; 
+}
+
+.habilidades{
+    text-align: center;
+    width: 50%;
+    float: right;
+    background: rgb(135, 135, 135);
+    border-top-right-radius: 20%;
+}
+
+#titulo{
+    color: white;
+}
+
+@media(max-width:800px){
+    .sprites{
+        width: 100%;
+        border-radius: 0px;
+    }
+    .sprites img{
+        height: 30vw;
+    }
+    .stats{
+        width: 100%;
+        border-top-left-radius: 0px; 
+    }
+    .habilidades{
+        margin-top: 2vh;
+        width: 100%;
+        border-top-right-radius: 0px;
+    }
+    .tipos{
+        width: 60%;
+    }
+    
+}
+
