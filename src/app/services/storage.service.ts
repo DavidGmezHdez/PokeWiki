@@ -73,4 +73,22 @@ export class StorageService {
       return this.storage.set(POKE_KEYS,guardados);
     });
   }
+
+  getInfo(id: number): Promise<Poke>{
+    return this.storage.get(POKE_KEYS).then((pokes: Poke[])=>{
+      if(!pokes || pokes.length == 0){
+        return null;
+      }
+
+      let pokeBuscado: Poke;
+
+      for(let i of pokes){
+        if(i.id === id){
+          pokeBuscado=i;
+        }
+      }
+      return pokeBuscado;
+    });
+  }
+  
 }

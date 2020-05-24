@@ -1,6 +1,7 @@
 <ion-header>
+  <script src="script.js"></script>
   <ion-toolbar color="dark">
-    <ion-title>Informacion de yokese</ion-title>
+    <ion-title>Informacion del pokemon</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -8,5 +9,18 @@
 </ion-header>
 
 <ion-content>
-
+  <div class="imagenytipos">
+    <p>{{ poke.nombre }}</p>
+    <img [src]="poke.img">
+    <div class="tipos">
+      <p id="tipo1">{{poke.tipo1}}</p>
+      <p id="tipo2">{{poke.tipo2}}</p>
+      <script>
+        llamarF1()
+        colorTipo2()
+      </script>
+    </div>
+    <p>Porcentaje de uso {{ poke.porcentaje }}%</p>
+  </div>
 </ion-content>
+

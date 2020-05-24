@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let poke of pokes">
+    <ion-item-sliding *ngFor="let poke of pokes" [routerLink]="['/', 'lista', poke.id]">
       <ion-item class="item">
         <img [src]="poke.img">
         <p>{{ poke.nombre }}</p>
