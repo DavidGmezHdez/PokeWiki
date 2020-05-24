@@ -27,7 +27,6 @@ export class ListaPage{
   loadPokes(){
     this.storageService.getPokes().then(pokes => {
       this.pokes = pokes.sort((a,b)=>b.porcentaje - a.porcentaje);
-
     });
     
   }
@@ -44,6 +43,10 @@ export class ListaPage{
     this.order = this.descending ? 1 : -1;
   }
 
+  aniadirEquipo(poke: Poke){
+    this.usuarios.aniadirPokeUsuario(poke);
+  }
+
   async showToast(msg){
     const toast = await this.toastController.create({
       message: msg,
@@ -52,7 +55,4 @@ export class ListaPage{
     toast.present();
   }
 
-  aniadirEquipo(poke: Poke){
-    this.usuarios.aniadirPokeUsuario(poke);
-  }
 }

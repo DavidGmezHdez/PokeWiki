@@ -7,20 +7,32 @@
 
 <ion-content>
 
-  <ion-item>
-    <ion-label position ="floating">Introduce el nick</ion-label>
-    <ion-input type="text" [(ngModel)]="usu.nick"></ion-input>
-  </ion-item>
+  <img src="../../assets/img/icono.png">
 
-  <ion-item>
-    <ion-label position ="floating">Introduce el email</ion-label>
-    <ion-input type="text" [(ngModel)]="usu.email"></ion-input>
-  </ion-item>
+  <div class ="registro">
 
-  <ion-item>  
-    <ion-label position ="floating">Introduce la contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="usu.pass"></ion-input>
-  </ion-item>
+    <ion-item class="introducir">
+      <ion-label position ="floating">Introduce el Nick</ion-label>
+      <ion-input type="text" [(ngModel)]="usu.nick"></ion-input>
+    </ion-item>
+  
+    <ion-item class="introducir">
+      <ion-label position ="floating">Introduce el email</ion-label>
+      <ion-input type="text" [(ngModel)]="usu.email"></ion-input>
+    </ion-item>
+  
+    <ion-item class="introducir">  
+      <ion-label position ="floating">Introduce la contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="usu.pass"></ion-input>
+    </ion-item>
+  
+    <ion-button color="warning" shape="round" size="small" expand="block" class="boton1" routerLink="/login" (click)="register()">Registrarse</ion-button>
+  
+  </div>
 
-  <ion-button routerLink="/login" (click)="register()">Registrarse</ion-button>
-</ion-content> 
+  <ion-footer class="footer">
+    <ion-label class="texto">Ya estas registrado</ion-label>
+    <ion-button color="warning" shape="round" size="small" expand="block"class="boton2" routerLink="/login">Volver al LogIn</ion-button>
+  </ion-footer>
+
+  </ion-content> 

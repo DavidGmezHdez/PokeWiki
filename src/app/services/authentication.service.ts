@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, empty } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Storage } from '@ionic/storage'
 import { Platform } from '@ionic/angular';
-import { Poke,StorageService } from '../services/storage.service';
+import { Poke } from '../services/storage.service';
 
 
 const USER_KEY = 'my-users';
@@ -12,7 +12,7 @@ export interface Usuario{
   nick: string,
   email: string,
   pass: string,
-  pokes: Poke[]
+  pokes: Poke[],
 }
 
 @Injectable({
@@ -20,17 +20,15 @@ export interface Usuario{
 })
 export class AuthenticationService {
   usuarioActivo: Usuario;
-  
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage, private pokes: StorageService) {
-    
+  constructor(private storage: Storage) {
+
   }
 
   addUsuario(usu: Usuario){
 
     return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
-      console.log(usus);
       if(usus){
         usus.push(usu);
         return this.storage.set(USER_KEY,usus);
@@ -80,7 +78,6 @@ export class AuthenticationService {
     });
   }
 
-
   getPokesEquipo(usu: Usuario){
     return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
       console.log(this.getUsuarioActivo());
@@ -109,7 +106,17 @@ export class AuthenticationService {
       }
     });
   }
-/*
+
+  logout(){
+    this.usuarioActivo = undefined;
+    this.authenticationState.next(false);
+  }
+
+  isAuthenticated(){
+    return this.authenticationState.value;
+  }
+
+  /*
   deleteUsuario(id: number){
     return this.storage.get(TOKEN_KEY).then((usus: Usuario[])=>{
       if(!usus || usus.length == 0){
@@ -142,14 +149,7 @@ export class AuthenticationService {
   }
 
 */
-  logout(){
-    this.usuarioActivo = undefined;
-    this.authenticationState.next(false);
-  }
 
-  isAuthenticated(){
-    return this.authenticationState.value;
-  }
 /*
   checkToken(){
     return this.storage.get(TOKEN_KEY).then(res =>{
@@ -187,5 +187,6 @@ export class AuthenticationService {
   getUsuarioActivo(){
     return this.usuarioActivo;
   }*/
+
 
 }

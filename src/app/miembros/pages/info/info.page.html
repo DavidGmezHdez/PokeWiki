@@ -1,13 +1,73 @@
 <ion-header>
   <script src="script.js"></script>
   <ion-toolbar color="dark">
-    <ion-title>{{ poke?.name}}</ion-title>
+    <ion-title>Información del Pokemon seleccionado</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <p id="nombrePoke">{{poke?.name}}</p>
+
+  <div class="sprites">
+    <p>Sprites:</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p>Sprite frontal</p>
+          <img [src]=" poke?.sprites.front_default ">
+        </ion-col>
+        <ion-col>
+          <p>Sprite trasero</p>
+          <img [src]=" poke?.sprites.back_default ">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>Sprite shiny frontal</p>
+          <img [src]=" poke?.sprites.front_shiny ">
+        </ion-col>
+        <ion-col>
+          <p>Sprite shiny trasero</p>
+          <img [src]=" poke?.sprites.back_shiny ">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="formaTipos">    
+
+    <ion-item-sliding class="tipos" *ngFor="let type of  poke?.types " >
+        <p class="tipo">{{ type.type.name }}</p>
+    </ion-item-sliding>
+    
+  </div>
+  
+
+  <div class="stats">
+    <p id="titulo">Estadisticas:</p>
+    <ion-item-sliding *ngFor="let stat of  poke?.stats " >
+      <ion-item>
+        <p>{{ stat.stat.name }}: {{ stat.base_stat }} </p>
+      </ion-item>
+    </ion-item-sliding>
+  </div>
+
+  <div class="habilidades">
+    <p id="titulo">Habilidades:</p>
+    <ion-item-sliding *ngFor="let abilitie of  poke?.abilities " >
+      <ion-item>
+        <p>{{ abilitie.ability.name }}</p>
+      </ion-item>
+    </ion-item-sliding>
+  </div>
+
+</ion-content>
+
+
+<!--
 <ion-content>
   <div class="imagenytipos">
     <p>Nombre: {{ poke?.name }}</p>
@@ -75,8 +135,6 @@
       </ion-item-sliding>
     </ion-list>
     
-
-
   </div>
 </ion-content>
-
+-->

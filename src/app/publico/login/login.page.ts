@@ -43,10 +43,6 @@ export class LoginPage implements OnInit {
     for(let i of this.usus){
       if(i.email === this.usu.email){
         if(i.pass === this.usu.pass){
-          this.storage.getPokesEquipo(this.usu).then (pokes=>{
-            console.log(pokes);
-            this.usu.pokes = pokes;
-          });
           this.storage.setUsuarioActivo(this.usu);
           this.showToast("Logueado con exito")
           this.storage.setEstado(true);
@@ -55,7 +51,8 @@ export class LoginPage implements OnInit {
       }
     }
     this.showToast("Datos no correctos, inténtelo de nuevo")
-    return false;
+    return true;
+
   }
 
   async showToast(msg){

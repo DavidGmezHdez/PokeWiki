@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
