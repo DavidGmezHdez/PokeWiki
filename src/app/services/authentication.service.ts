@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Poke } from '../services/storage.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, empty } from 'rxjs';
 import { Storage } from '@ionic/storage'
 import { Platform } from '@ionic/angular';
+import { Poke,StorageService } from '../services/storage.service';
 
 
 const USER_KEY = 'my-users';
@@ -12,7 +12,7 @@ export interface Usuario{
   nick: string,
   email: string,
   pass: string,
-  pokes: Poke[],
+  pokes: Poke[]
 }
 
 @Injectable({
@@ -20,15 +20,17 @@ export interface Usuario{
 })
 export class AuthenticationService {
   usuarioActivo: Usuario;
+  
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage) {
-
+  constructor(private storage: Storage, private pokes: StorageService) {
+    
   }
 
   addUsuario(usu: Usuario){
 
     return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
+      console.log(usus);
       if(usus){
         usus.push(usu);
         return this.storage.set(USER_KEY,usus);
@@ -44,7 +46,15 @@ export class AuthenticationService {
   }
 
   setUsuarioActivo(usuario: Usuario){
-    this.usuarioActivo = usuario;
+
+    return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
+      console.log(usus);
+      for(let i of usus){
+        if(i.email === usuario.email){
+          this.usuarioActivo = i;
+        }
+      }
+    });
   }
 
   getUsuarioActivo(){
@@ -55,6 +65,50 @@ export class AuthenticationService {
     this.authenticationState.next(estado);
   }
 
+  aniadirPokeUsuario(poke: Poke){
+    return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
+      console.log(this.getUsuarioActivo());
+      for(let i of usus){
+        if(i.email === this.getUsuarioActivo().email){
+          console.log(i.pokes);
+          this.usuarioActivo.pokes.push(poke);
+          usus.splice(usus.indexOf(i),1);
+          usus.push(this.usuarioActivo);
+          return this.storage.set(USER_KEY,usus);
+        }
+      }
+    });
+  }
+
+
+  getPokesEquipo(usu: Usuario){
+    return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
+      console.log(this.getUsuarioActivo());
+      for(let i of usus){
+        if(i.email === usu.email){
+          return usu.pokes;
+        }
+      }
+    });
+  }
+
+  deletePokeEquipo(poke: Poke){
+
+    return this.storage.get(USER_KEY).then((usus: Usuario[])=>{
+      console.log(usus);
+      console.log(this.getUsuarioActivo());
+      for(let i of usus){
+        if(i.email === this.getUsuarioActivo().email){
+          console.log(i.pokes);
+          i.pokes.splice(i.pokes.indexOf(poke),1);
+          this.usuarioActivo.pokes.splice(this.usuarioActivo.pokes.indexOf(poke),1);
+          usus.splice(usus.indexOf(i),1);
+          usus.push(this.usuarioActivo);
+          return this.storage.set(USER_KEY,usus);
+        }
+      }
+    });
+  }
 /*
   deleteUsuario(id: number){
     return this.storage.get(TOKEN_KEY).then((usus: Usuario[])=>{

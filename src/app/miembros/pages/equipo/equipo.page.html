@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title>Lista de los pokemon</ion-title>
+    <ion-title>Mi Equipo</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -16,8 +16,7 @@
         <p slot="end">{{ poke.porcentaje }}%</p>
       </ion-item>
       <ion-item-options slite="end">
-        <ion-item-option color="danger" (click)="deletePoke(poke)">Borrar del equipo</ion-item-option>
-        <ion-item-option color="secondary" (click)="aniadirEquipo(poke)">Añadir a mi equipo</ion-item-option>
+        <ion-item-option color="danger" (click)="deletePokeEquipo(poke)">Delete</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
 

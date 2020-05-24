@@ -1,22 +1,23 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Poke,StorageService } from '../../../services/storage.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
 import { Usuario,AuthenticationService } from '../../../services/authentication.service';
 
+
 @Component({
-  selector: 'app-lista',
-  templateUrl: './lista.page.html',
-  styleUrls: ['./lista.page.scss'],
+  selector: 'app-equipo',
+  templateUrl: './equipo.page.html',
+  styleUrls: ['./equipo.page.scss'],
 })
 
-export class ListaPage{
+export class EquipoPage {
+
 
   pokes: Poke[] = [];
   poke: Poke= <Poke>{};
   descending: boolean = false;
   order: number;
 
-  @ViewChild('mylist')mylist: IonList;
 
   constructor(private storageService: StorageService, private usuarios: AuthenticationService,private plt: Platform, private toastController: ToastController) {
     this.plt.ready().then(()=>{
@@ -25,16 +26,15 @@ export class ListaPage{
   }
 
   loadPokes(){
-    this.storageService.getPokes().then(pokes => {
-      this.pokes = pokes.sort((a,b)=>b.porcentaje - a.porcentaje);
-
+    this.usuarios.getPokesEquipo(this.usuarios.getUsuarioActivo()).then (pokes=>{
+      console.log(pokes);
+      this.pokes = pokes;
     });
-    
   }
 
-  deletePoke(poke: Poke){
-    this.storageService.deletePokemon(poke.id).then(poke => {
-      this.showToast('Poke eliminado');
+  deletePokeEquipo(poke: Poke){
+    this.usuarios.deletePokeEquipo(poke).then(poke => {
+      this.showToast('Poke eliminado del equipo');
       this.loadPokes();
     });
   }

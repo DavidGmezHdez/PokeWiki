@@ -42,6 +42,11 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./publico/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'equipo',
+    canActivate:[AuthGuardService],
+    loadChildren: () => import('./miembros/pages/equipo/equipo.module').then( m => m.EquipoPageModule)
+  },
 ];
 
 @NgModule({

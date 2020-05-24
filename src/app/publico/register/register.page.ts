@@ -27,6 +27,7 @@ export class RegisterPage implements OnInit {
 
   register(){
     this.usu.id = this.usus.length + 1;;
+    this.usu.pokes = [];
     this.storage.addUsuario(this.usu)
     console.log("Usuario añadido ");
     console.log(this.usu);
