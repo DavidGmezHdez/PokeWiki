@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./miembros/pages/lista/lista.module').then( m => m.ListaPageModule)
   },
   {
-    path: 'info',
+    path: 'lista/:nombre',
     canActivate:[AuthGuardService],
     loadChildren: () => import('./miembros/pages/info/info.module').then( m => m.InfoPageModule)
   },

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Poke,StorageService } from '../../../services/storage.service';
 import {ActivatedRoute} from '@angular/router';
+import { Observable } from 'rxjs';
+
 
 declare var colorTipo1;
 
@@ -11,21 +13,22 @@ declare var colorTipo1;
 })
 export class InfoPage implements OnInit {
 
-  poke: Poke;
+  poke = null;
 
   constructor(private activatedRoute: ActivatedRoute, private storageService: StorageService) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-
-    this.storageService.getInfo(parseInt(id)).then(poke=>{
-      this.poke=poke;
+    let nombre = this.activatedRoute.snapshot.paramMap.get('nombre');
+    nombre = nombre.toLowerCase();
+    this.storageService.getInfo(nombre).subscribe(result=>{
+      console.log('detalles ', result);
+      this.poke = result;
     });
 
   }
 
-  llamarF1(){
-    colorTipo1();
+  openWebsite(){
+    window.open(this.poke.Website);
   }
 
 }

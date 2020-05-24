@@ -1,7 +1,7 @@
 <ion-header>
   <script src="script.js"></script>
   <ion-toolbar color="dark">
-    <ion-title>Informacion del pokemon</ion-title>
+    <ion-title>{{ poke?.name}}</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -10,17 +10,73 @@
 
 <ion-content>
   <div class="imagenytipos">
-    <p>{{ poke.nombre }}</p>
-    <img [src]="poke.img">
-    <div class="tipos">
-      <p id="tipo1">{{poke.tipo1}}</p>
-      <p id="tipo2">{{poke.tipo2}}</p>
-      <script>
-        llamarF1()
-        colorTipo2()
-      </script>
-    </div>
-    <p>Porcentaje de uso {{ poke.porcentaje }}%</p>
+    <p>Nombre: {{ poke?.name }}</p>
+    <p>Peso: {{ poke?.weight }}</p>
+    <p>Altura: {{ poke?.height }}</p>
+
+    
+    <ion-list>
+      <p>Tipos</p>
+      <ion-item-sliding *ngFor="let type of  poke?.types " >
+        <ion-item>
+          <p>{{ type.type.name }}</p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+    
+
+    <ion-list>
+      <p>Habilidades</p>
+      <ion-item-sliding *ngFor="let abilitie of  poke?.abilities " >
+        <ion-item>
+          <p>{{ abilitie.ability.name }}</p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list>
+      <p>Movimientos</p>
+      <ion-item-sliding *ngFor="let move of  poke?.moves " >
+        <ion-item>
+          <p>{{ move.move.name }}</p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list>
+      <p>Sprites</p>
+      <ion-item>
+        <img [src]=" poke?.sprites.back_default ">
+        <p>Trasero por defecto</p>
+      </ion-item>
+
+      <ion-item>
+        <img [src]=" poke?.sprites.back_shiny ">
+        <p>Trasero shiny</p>
+      </ion-item>
+
+      <ion-item>
+        <img [src]=" poke?.sprites.front_default ">
+        <p>Frente  por defecto</p>
+      </ion-item>
+
+      <ion-item>
+        <img [src]=" poke?.sprites.front_shiny ">
+        <p>Frente shiny</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <p>Stats</p>
+      <ion-item-sliding *ngFor="let stat of  poke?.stats " >
+        <ion-item>
+          <p>{{ stat.stat.name }}: {{ stat.base_stat }} </p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+    
+
+
   </div>
 </ion-content>
 

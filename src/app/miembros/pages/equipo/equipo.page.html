@@ -10,13 +10,13 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let poke of pokes">
-      <ion-item class="item">
+      <ion-item class="item" [routerLink]="['/', 'lista', poke.nombre]">
         <img [src]="poke.img">
         <p>{{ poke.nombre }}</p>
         <p slot="end">{{ poke.porcentaje }}%</p>
       </ion-item>
       <ion-item-options slite="end">
-        <ion-item-option color="danger" (click)="deletePokeEquipo(poke)">Delete</ion-item-option>
+        <ion-item-option color="danger" (click)="deletePokeEquipo(poke)">Borrar del Equipo</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
 

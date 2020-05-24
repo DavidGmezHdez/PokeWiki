@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage'
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Poke{
   id: number,
@@ -19,7 +22,9 @@ const POKE_KEYS='my-pokes';
 
 export class StorageService {
 
-  constructor(private storage: Storage) { }
+  url = 'https://pokeapi.co/api/v2/pokemon/';
+  pokeBuscado: string;
+  constructor(private storage: Storage, private http: HttpClient) { }
 
 
   addPokemon(poke: Poke): Promise<any> {
@@ -74,21 +79,9 @@ export class StorageService {
     });
   }
 
-  getInfo(id: number): Promise<Poke>{
-    return this.storage.get(POKE_KEYS).then((pokes: Poke[])=>{
-      if(!pokes || pokes.length == 0){
-        return null;
-      }
-
-      let pokeBuscado: Poke;
-
-      for(let i of pokes){
-        if(i.id === id){
-          pokeBuscado=i;
-        }
-      }
-      return pokeBuscado;
-    });
+  getInfo(nombre: string): Observable<any>{
+    console.log(this.http.get(this.url + nombre).pipe(map(res=>res)));
+    return this.http.get(this.url + nombre).pipe(map(res=>res));
   }
   
 }
