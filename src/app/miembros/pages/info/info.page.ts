@@ -38,7 +38,6 @@ export class InfoPage implements OnInit {
       this.storageService.getInfo(nombre).subscribe(result=>{
         console.log("detalles",result);
         this.poke = result;
-        //this.cambiarColor(this.poke.types[0].type.name);
       });
     }
 
@@ -51,7 +50,7 @@ export class InfoPage implements OnInit {
         this.tipo1 = tipo;
       }
       
-
+/*
       if(document.getElementsByClassName("tipo").item(0) !== null){
           if(this.tipo1 == "water")document.getElementsByClassName("tipo").item(0).style.background = "#4592c4"
           if(this.tipo1 == "bug")document.getElementsByClassName("tipo").item(0).style.background = "#729f3f"
@@ -92,7 +91,7 @@ export class InfoPage implements OnInit {
         if(tipo == "poison")document.getElementsByClassName("tipo").item(1).style.background = "#b97fc9"
         if(tipo == "flying")document.getElementsByClassName("tipo").item(1).style.background = "#3dc7ef"
       }
-     
+     */
     }
 
 

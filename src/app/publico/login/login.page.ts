@@ -36,6 +36,7 @@ export class LoginPage implements OnInit {
   login(){
     console.log(this.usu);
     console.log(this.usus);
+    console.log(this.usus);
     if(!this.usus || this.usus.length == 0){
       return false;
     }
