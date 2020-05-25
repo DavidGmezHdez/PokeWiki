@@ -45,53 +45,51 @@ export class InfoPage implements OnInit {
       alert("Poke");
     }
 
-    cambiarColor(tipo: string){
-      if(this.tipo1 === null || this.tipo1 === tipo){
-        this.tipo1 = tipo;
-      }
+    cambiarColor(){
       
-/*
-      if(document.getElementsByClassName("tipo").item(0) !== null){
-          if(this.tipo1 == "water")document.getElementsByClassName("tipo").item(0).style.background = "#4592c4"
-          if(this.tipo1 == "bug")document.getElementsByClassName("tipo").item(0).style.background = "#729f3f"
-          if(this.tipo1 == "dragon")document.getElementsByClassName("tipo").item(0).style.background = "rgb(88, 0, 202)"
-          if(this.tipo1 == "electric")document.getElementsByClassName("tipo").item(0).style.background = "#eed535"
-          if(this.tipo1 == "ghost")document.getElementsByClassName("tipo").item(0).style.background = "#7b62a3"
-          if(this.tipo1 == "fire")document.getElementsByClassName("tipo").item(0).style.background = "#fd7d24"
-          if(this.tipo1 == "fairy")document.getElementsByClassName("tipo").item(0).style.background = "#fdb9e9"
-          if(this.tipo1 == "ice")document.getElementsByClassName("tipo").item(0).style.background = "#51c4e7"
-          if(this.tipo1 == "fight")document.getElementsByClassName("tipo").item(0).style.background = "#d56723"
-          if(this.tipo1 == "normal")document.getElementsByClassName("tipo").item(0).style.background = "#a4acaf"
-          if(this.tipo1 == "grass")document.getElementsByClassName("tipo").item(0).style.background = "#9bcc50"
-          if(this.tipo1 == "psychic")document.getElementsByClassName("tipo").item(0).style.background = "#f366b9"
-          if(this.tipo1 == "rock")document.getElementsByClassName("tipo").item(0).style.background = "#a38c21"
-          if(this.tipo1 == "dark")document.getElementsByClassName("tipo").item(0).style.background = "#707070"
-          if(this.tipo1 == "ground")document.getElementsByClassName("tipo").item(0).style.background = "#ab9842 "
-          if(this.tipo1 == "poison")document.getElementsByClassName("tipo").item(0).style.background = "#b97fc9"
-          if(this.tipo1 == "flying")document.getElementsByClassName("tipo").item(0).style.background = "#3dc7ef"
-      }
+      let type = document.getElementsByClassName("tipo") as HTMLCollectionOf<HTMLElement>;
 
-      if(document.getElementsByClassName("tipo").item(1) !== null){
-        if(tipo === "steel")document.getElementsByClassName("tipo").item(1).style.background = "#9eb7b8"
-        if(tipo === "water")document.getElementsByClassName("tipo").item(1).style.background = "#4592c4"
-        if(tipo === "bug")document.getElementsByClassName("tipo").item(1).style.background = "#729f3f"
-        if(tipo == "dragon")document.getElementsByClassName("tipo").item(1).style.background = "rgb(88, 0, 202)"
-        if(tipo == "electric")document.getElementsByClassName("tipo").item(1).style.background = "#eed535"
-        if(tipo == "ghost")document.getElementsByClassName("tipo").item(1).style.background = "#7b62a3"
-        if(tipo == "fire")document.getElementsByClassName("tipo").item(1).style.background = "#fd7d24"
-        if(tipo == "fairy")document.getElementsByClassName("tipo").item(1).style.background = "#fdb9e9"
-        if(tipo == "ice")document.getElementsByClassName("tipo").item(1).style.background = "#51c4e7"
-        if(tipo == "fight")document.getElementsByClassName("tipo").item(1).style.background = "#d56723"
-        if(tipo == "normal")document.getElementsByClassName("tipo").item(1).style.background = "#a4acaf"
-        if(tipo == "grass")document.getElementsByClassName("tipo").item(1).style.background = "#9bcc50";
-        if(tipo == "psychic")document.getElementsByClassName("tipo").item(1).style.background = "#f366b9"
-        if(tipo == "rcok")document.getElementsByClassName("tipo").item(1).style.background = "#a38c21"
-        if(tipo == "dark")document.getElementsByClassName("tipo").item(1).style.background = "#707070"
-        if(tipo == "ground")document.getElementsByClassName("tipo").item(1).style.background = "#ab9842 "
-        if(tipo == "poison")document.getElementsByClassName("tipo").item(1).style.background = "#b97fc9"
-        if(tipo == "flying")document.getElementsByClassName("tipo").item(1).style.background = "#3dc7ef"
-      }
-     */
+      if(type[0]!== undefined){
+          if(type[0].innerHTML === "steel")type[0].style.background = "#9eb7b8"
+          if(type[0].innerHTML == "water")type[0].style.background = "#4592c4"
+          if(type[0].innerHTML == "bug")type[0].style.background = "#729f3f"
+          if(type[0].innerHTML == "dragon")type[0].style.background = "rgb(88, 0, 202)"
+          if(type[0].innerHTML == "electric")type[0].style.background = "#eed535"
+          if(type[0].innerHTML == "ghost")type[0].style.background = "#7b62a3"
+          if(type[0].innerHTML == "fire")type[0].style.background = "#fd7d24"
+          if(type[0].innerHTML == "fairy")type[0].style.background = "#fdb9e9"
+          if(type[0].innerHTML == "ice")type[0].style.background = "#51c4e7"
+          if(type[0].innerHTML == "fighting")type[0].style.background = "#d56723"
+          if(type[0].innerHTML == "normal")type[0].style.background = "#a4acaf"
+          if(type[0].innerHTML == "grass")type[0].style.background = "#9bcc50"
+          if(type[0].innerHTML == "psychic")type[0].style.background = "#f366b9"
+          if(type[0].innerHTML == "rock")type[0].style.background = "#a38c21"
+          if(type[0].innerHTML == "dark")type[0].style.background = "#707070"
+          if(type[0].innerHTML == "ground")type[0].style.background = "#ab9842 "
+          if(type[0].innerHTML == "poison")type[0].style.background = "#b97fc9"
+          if(type[0].innerHTML == "flying")type[0].style.background = "#3dc7ef"
+      }   
+      
+      if(type[1]!== undefined){
+        if(type[1].innerHTML == "steel")type[1].style.background = "#9eb7b8"
+        if(type[1].innerHTML == "water")type[1].style.background = "#4592c4"
+        if(type[1].innerHTML == "bug")type[1].style.background = "#729f3f"
+        if(type[1].innerHTML == "dragon")type[1].style.background = "rgb(88, 0, 202)"
+        if(type[1].innerHTML == "electric")type[1].style.background = "#eed535"
+        if(type[1].innerHTML == "ghost")type[1].style.background = "#7b62a3"
+        if(type[1].innerHTML == "fire")type[1].style.background = "#fd7d24"
+        if(type[1].innerHTML == "fairy")type[1].style.background = "#fdb9e9"
+        if(type[1].innerHTML == "ice")type[1].style.background = "#51c4e7"
+        if(type[1].innerHTML == "fighting")type[1].style.background = "#d56723"
+        if(type[1].innerHTML == "normal")type[1].style.background = "#a4acaf"
+        if(type[1].innerHTML == "grass")type[1].style.background = "#9bcc50"
+        if(type[1].innerHTML == "psychic")type[1].style.background = "#f366b9"
+        if(type[1].innerHTML == "rock")type[1].style.background = "#a38c21"
+        if(type[1].innerHTML == "dark")type[1].style.background = "#707070"
+        if(type[1].innerHTML == "ground")type[1].style.background = "#ab9842 "
+        if(type[1].innerHTML == "poison")type[1].style.background = "#b97fc9"
+        if(type[1].innerHTML == "flying")type[1].style.background = "#3dc7ef"
+      }   
     }
 
 
