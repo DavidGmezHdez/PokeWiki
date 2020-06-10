@@ -4,7 +4,7 @@ La aplicación se basará en un sistema de  almacenamiento de información  sobr
 La plataforma tendrá un sistema de login y registro, de tal forma que se accederá a la plataforma usando un usuario y contraseña. Tras esto, se podrá acceder a un menú donde habrá una serie de páginas y distintas funcionalidades. Podrás registrar un nuevo Pokemon si la lista está vacía, borrarlo, añadirlo a tu equipo personal u obtener información si haces click en él.
 
 ## Autores
-* **David Gómez** - *Desarrollador* - [DabvidGmezHdez](https://github.com/davidgmezhdez)
+* **David Gómez** - *Desarrollador* - [DavidGmezHdez](https://github.com/davidgmezhdez)
 * **José Miguel Jerónimo** - *Desarrollador* - [Chemita1728](https://github.com/Chemita1728)
 
 ### Instalación 🔧
